@@ -1,3 +1,4 @@
+
 package com.cgi.soa.masterclass.sofortzahlen.model;
 
 import java.io.Serializable;
@@ -34,6 +35,18 @@ public class User implements Serializable {
 	public User() {
 		
 		
+	}
+
+	public User(int id, String email, String lastname, int accnumber,
+			String accfirstname, String acclastname, Long balance) {
+		super();
+		this.id = id;
+		this.email = email;
+		this.lastname = lastname;
+		this.accnumber = accnumber;
+		this.accfirstname = accfirstname;
+		this.acclastname = acclastname;
+		this.balance = balance;
 	}
 
 	public int getId() {
