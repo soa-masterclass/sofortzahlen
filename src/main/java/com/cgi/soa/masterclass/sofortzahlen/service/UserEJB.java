@@ -20,7 +20,7 @@ public class UserEJB {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<User> selectAllUser(EntityManager em)
+	public List<User> selectAllUser()
 	{
 		 
 		List<User> users = new LinkedList<User>();
