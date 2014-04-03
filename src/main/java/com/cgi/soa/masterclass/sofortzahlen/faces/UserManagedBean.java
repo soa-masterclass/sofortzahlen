@@ -32,6 +32,11 @@ public class UserManagedBean {
 		return user;		
 	}
 	
+	public int getUderId(){
+		
+		return user.getId();
+	}
+	
 	public List<User> getUserList() {
 		return userEJB.selectAllUser();
 	}
@@ -47,21 +52,7 @@ public class UserManagedBean {
 //		return "success";
 		return "/users/index.xhtml";
 	}
-	
-//	private ArrayList<User> createSampleUser(){
-//		User user = new User();
-//		user.setId(1234);
-//		user.setEmail("a@a.com");
-//		user.setFirstname("Max");
-//		user.setLastname("Mustermann");
-//		user.setAccnumber(1223);
-//		user.setAccfirstname("Max");
-//		user.setAcclastname("Mustermann");
-//		user.setBalance(1000L);
-//		userList.clear();
-//		userList.add(user);
-//		return userList;
-//	}
+
 	
 	
 }

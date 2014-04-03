@@ -41,15 +41,15 @@ public class UserEJB {
 	}
 	
 	
-	List<Transaction> findTransactionsById(Integer userId)
+	public User findUserById(Integer userId)
 	{
-		String query = "select q from "+ User.class.getName()+" where  q.id = :id" ; 
+		String query = "select q from "+ User.class.getName()+" q where  q.id = :id" ; 
 		
 		Query q = em.createQuery(query).setParameter("id", userId);
 		User user = (User) q.getResultList().get(0);
 		
 		 
-		return user.getTransactionList();
+		return user;
 	}
 	
 	

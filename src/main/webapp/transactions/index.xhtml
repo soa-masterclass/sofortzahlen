@@ -31,7 +31,7 @@ body {
 </h:head>
 <h:body>
 	<f:metadata>
-		<f:viewParam name="userId" value="#{transactionBean.account}" required="true" converter="userConverter" />
+		<f:viewParam name="userId" value="#{transactionManagedBean.user}" required="true" converter="userConverter" />	
 	</f:metadata>
 		<!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
@@ -62,7 +62,7 @@ body {
 		</div>
 
 		<div class="container">
-			<h1>Transactions from Marc Mustermann</h1>
+			<h1>Transactions from #{transactionManagedBean.user.firstname} #{transactionManagedBean.user.lastname}</h1>
 
 			<br />
 			<button class="btn btn-default"
@@ -96,6 +96,20 @@ body {
 					</tr>
 				</thead>
 				<tbody>
+					<ui:repeat var="ut" value="#{transationManagedBean.user.transactionList}" varStatus="status">
+
+				<tr>
+					<td>#{ut.number}</td>
+					<td>#{ut.transdate}</td>
+					<td>#{ut.recipient}</td>
+					<td>#{ut.purpose}</td>
+					<td>#{ut.fee}</td>
+					<td>#{ut.amount}</td>
+				<!--  <td align="right">#{u.balance}</td> -->
+				</tr>
+
+			</ui:repeat>
+		<!--  		
 					<tr>
 						<td>1</td>
 						<td>12.01.2014 08:12:19</td>
@@ -120,6 +134,7 @@ body {
 						<td align="right">0,43</td>
 						<td align="right">14,10</td>
 					</tr>
+			-->
 				</tbody>
 			</table>
 

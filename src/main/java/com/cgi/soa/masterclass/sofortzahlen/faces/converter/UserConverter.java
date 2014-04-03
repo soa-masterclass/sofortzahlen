@@ -6,6 +6,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 
+import com.cgi.soa.masterclass.sofortzahlen.model.User;
 import com.cgi.soa.masterclass.sofortzahlen.service.UserEJB;
 
 @FacesConverter(value="userConverter")
@@ -16,14 +17,12 @@ public class UserConverter implements Converter{
 
 	@Override
 	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
-		// TODO Auto-generated method stub
-		return null;
+		return userEJB.findUserById(Integer.valueOf(arg2));
 	}
 
 	@Override
 	public String getAsString(FacesContext arg0, UIComponent arg1, Object arg2) {
-		// TODO Auto-generated method stub
-		return null;
+		return ((User)arg2).getId().toString();
 	}
 	
 }

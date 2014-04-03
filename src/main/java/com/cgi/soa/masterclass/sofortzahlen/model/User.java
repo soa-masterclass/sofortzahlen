@@ -24,12 +24,12 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private Integer id;
 	@Column(unique=true)
 	private String email;
 	private String firstname;
 	private String lastname;
-	private int accnumber;
+	private Integer accnumber;
 	private String accfirstname;
 	private String acclastname;
 	@Column(columnDefinition="Decimal(20,2)")
@@ -51,7 +51,7 @@ public class User implements Serializable {
 		
 	}
 
-	public User(int id, String email, String lastname, int accnumber,
+	public User(int id, String email, String lastname, Integer accnumber,
 			String accfirstname, String acclastname, Long balance) {
 		super();
 		this.id = id;
@@ -63,11 +63,11 @@ public class User implements Serializable {
 		this.balance = balance;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -87,11 +87,11 @@ public class User implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public int getAccnumber() {
+	public Integer getAccnumber() {
 		return accnumber;
 	}
 
-	public void setAccnumber(int accnumber) {
+	public void setAccnumber(Integer accnumber) {
 		this.accnumber = accnumber;
 	}
 
