@@ -11,7 +11,7 @@ import javax.persistence.Query;
 import com.cgi.soa.masterclass.sofortzahlen.model.User;
 
 @Stateless 
-public class UserTest {
+public class UserEJB {
 	@PersistenceContext
 	private EntityManager em;
 	
