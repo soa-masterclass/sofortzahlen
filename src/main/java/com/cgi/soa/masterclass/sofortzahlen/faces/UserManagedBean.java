@@ -13,29 +13,34 @@ import com.cgi.soa.masterclass.sofortzahlen.service.UserEJB;
 @Named
 @RequestScoped
 public class UserManagedBean {
-	ArrayList<User> userList = new ArrayList<User>();
-	
 	@Inject
 	UserEJB userEJB;
 	
-
+	ArrayList<User> userList = new ArrayList<User>();
+	User user = new User();
+	
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public User getUser(){
+		return user;		
+	}
+	
 	public List<User> getUserList() {
 		return userEJB.selectAllUser();
 	}
-
 
 	public void setUserList(ArrayList<User> userList) {
 		
 		this.userList = userList;
 	}
-
-	public User getUser(){
-		return null;		
-	}
 	
-//	public String createUser(){
-//		
-//	}
+	public String saveUser(){
+		userEJB.insert(user);
+//		return "success";
+		return "/users/index.xhtml";
+	}
 	
 //	private ArrayList<User> createSampleUser(){
 //		User user = new User();
