@@ -2,7 +2,16 @@ package com.cgi.soa.masterclass.sofortzahlen.model;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Entity implementation class for Entity: Transaction
@@ -12,10 +21,16 @@ import javax.persistence.*;
 @Table(name="TransactionTable")
 public class Transaction implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	private int id;
+	@ManyToOne
+	@JoinColumn
 	private User sender;
+	@ManyToOne
+	@JoinColumn
 	private User recipient;
 	@Temporal(TemporalType.DATE) 
 	@Column(name = "DATE_FIELD")
@@ -23,9 +38,8 @@ public class Transaction implements Serializable {
 	private String purpose;
 	@Column(columnDefinition="Decimal(20,2)")
 	private Long amount;
-
-	
-	private static final long serialVersionUID = 1L;
+	@OneToOne(mappedBy="transaction")
+	private Fee fee;
 
 	public int getId() {
 		return id;

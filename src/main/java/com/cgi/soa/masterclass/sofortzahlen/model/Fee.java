@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,14 +20,16 @@ import javax.persistence.Table;
 @Table(name="FeeTable")
 public class Fee implements Serializable {
 	
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue
 	private int id;
+	@OneToOne
+	@JoinColumn
 	private Transaction transaction;
 	@Column(columnDefinition="Decimal(20,2)")
 	private Long amount;
-	
-	private static final long serialVersionUID = 1L;
 
 	public Fee() {
 		super();
