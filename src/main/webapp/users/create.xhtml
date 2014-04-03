@@ -74,16 +74,22 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="form:email">EMail</label> <input
+				<label for="form:email">EMail</label> 
+				<input
 					type="email" class="form-control" jsf:id="email" jsf:value="#{userManagedBean.user.email}"
 					required="required" jsf:required="true"
-					placeholder="Enter Email" />
+					placeholder="Enter Email" >
+			
+					</input>
 			</div>
 			<div class="form-group">
 				<label for="form:accountNumber">Account Number</label>
 				<input type="text" class="form-control" jsf:id="accountNumber" jsf:value="#{userManagedBean.user.accnumber}"
-					required="required" jsf:required="true"
-					placeholder="Enter Account Number" />
+					required="required" jsf:required="true" jsf:validator="zahlenValidator"
+					placeholder="Enter Account Number" >
+					
+				
+					</input>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
@@ -104,6 +110,7 @@
 				</div>
 			</div>
 			<button type="submit" class="btn btn-default" jsf:action="#{userManagedBean.saveUser}">Create User</button>
+			<h:message for="emailAddress" errorStyle="color:red; display:block"/>
 		</form>
 
       <hr />

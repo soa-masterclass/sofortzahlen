@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.cgi.soa.masterclass.sofortzahlen.model.User;
+import com.cgi.soa.masterclass.sofortzahlen.service.BankWS;
 import com.cgi.soa.masterclass.sofortzahlen.service.UserEJB;
 
 @Named
@@ -16,11 +17,15 @@ public class UserManagedBean {
 	@Inject
 	UserEJB userEJB;
 	
+	@Inject
+	BankWS bankWs;
+	
 	ArrayList<User> userList = new ArrayList<User>();
 	User user = new User();
 	
 	public void setUser(User user) {
 		this.user = user;
+		bankWs.getWebServices().isAccountExist(1);
 	}
 	
 	public User getUser(){
