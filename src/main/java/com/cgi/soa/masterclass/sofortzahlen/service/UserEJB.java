@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.cgi.soa.masterclass.sofortzahlen.model.Transaction;
 import com.cgi.soa.masterclass.sofortzahlen.model.User;
 
 @Stateless 
@@ -38,6 +39,20 @@ public class UserEJB {
 		return users;
 		
 	}
+	
+	
+	List<Transaction> findTransactionsById(Integer userId)
+	{
+		String query = "select q from "+ User.class.getName()+" where  q.id = :id" ; 
+		
+		Query q = em.createQuery(query).setParameter("id", userId);
+		User user = (User) q.getResultList().get(0);
+		
+		 
+		return user.getTransactionList();
+	}
+	
+	
 	
 	public void update (User user, int uid)
 	{
