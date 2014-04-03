@@ -66,16 +66,16 @@ body {
 
 			<br />
 			<button class="btn btn-default"
-				jsf:outcome="/transactions/deposit.xhtml">
+				jsf:outcome="/transactions/deposit.xhtml?userId=#{transactionManagedBean.user.id}">
 				<span class="glyphicon glyphicon-plus" /> Deposit
 			</button>
 			&#160;
 			<button class="btn btn-default"
-				jsf:outcome="/transactions/clearing.xhtml">
+				jsf:outcome="/transactions/clearing.xhtml?userId=#{transactionManagedBean.user.id}">
 				<span class="glyphicon glyphicon-log-out" /> Clearing
 			</button>
 			&#160;
-			<button class="btn btn-default" jsf:outcome="/transactions/pay.xhtml">
+			<button class="btn btn-default" jsf:outcome="/transactions/pay.xhtml?userId=#{transactionManagedBean.user.id}">
 				<span class="glyphicon glyphicon-euro" /> Pay
 			</button>
 			<br />
