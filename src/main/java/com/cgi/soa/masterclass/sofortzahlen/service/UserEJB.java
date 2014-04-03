@@ -26,7 +26,7 @@ public class UserEJB {
 		List<User> users = new LinkedList<User>();
 		try
 		{
-			String query = "select q from User q";
+			String query = "select q from "+User.class.getName()+" q";
 			Query q = em.createQuery(query);
 			users = (List<User>) q.getResultList();	
 		}
