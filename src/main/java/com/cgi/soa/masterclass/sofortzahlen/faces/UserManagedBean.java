@@ -42,6 +42,7 @@ public class UserManagedBean {
 	}
 	
 	public String saveUser(){
+		user.setBalance(0l);
 		userEJB.insert(user);
 //		return "success";
 		return "/users/index.xhtml";

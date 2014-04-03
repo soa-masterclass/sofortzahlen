@@ -76,7 +76,7 @@ body {
 					<th>Account Firstname</th>
 					<th>Account Lastname</th>
 					<th align="right">Balance</th>
-					<th></th>
+					<th>Transactions</th>
 				</tr>
 			</thead>
 			<ui:repeat var="u" value="#{userManagedBean.userList}"
@@ -90,6 +90,7 @@ body {
 					<td>#{u.accfirstname}</td>
 					<td>#{u.acclastname}</td>
 					<td align="right">#{u.balance}</td>
+					<td><a jsf:outcome="/transactions/index.xhtml">Transactions</a></td>
 				</tr>
 
 			</ui:repeat>

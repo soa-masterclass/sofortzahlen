@@ -2,11 +2,13 @@
 package com.cgi.soa.masterclass.sofortzahlen.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -17,6 +19,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name="UserTable")
 public class User implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue
@@ -31,7 +35,16 @@ public class User implements Serializable {
 	@Column(columnDefinition="Decimal(20,2)")
 	private Long balance;
 	
-	private static final long serialVersionUID = 1L;
+	@OneToMany(mappedBy="sender")
+	public List<Transaction> transactionList;
+
+	public List<Transaction> getTransactionList() {
+		return transactionList;
+	}
+
+	public void setTransactionList(List<Transaction> transactionList) {
+		this.transactionList = transactionList;
+	}
 
 	public User() {
 		
@@ -113,8 +126,5 @@ public class User implements Serializable {
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-	
-	
-	
    
 }
