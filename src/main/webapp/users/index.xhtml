@@ -90,7 +90,7 @@ body {
 					<td>#{u.accfirstname}</td>
 					<td>#{u.acclastname}</td>
 					<td align="right">#{u.balance}</td>
-					<td><a jsf:outcome="/transactions/index.xhtml">Transactions</a></td>
+					<td><a jsf:outcome="/transactions/index.xhtml?userId=#{u.id}">Transactions</a></td>
 				</tr>
 
 			</ui:repeat>
