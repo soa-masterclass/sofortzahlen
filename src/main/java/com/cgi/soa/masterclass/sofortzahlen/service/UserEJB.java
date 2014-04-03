@@ -26,7 +26,7 @@ public class UserEJB {
 		List<User> users = new LinkedList<User>();
 		try
 		{
-			String query = "select q from from User q";
+			String query = "select q from User q";
 			Query q = em.createQuery(query);
 			users = (List<User>) q.getResultList();	
 		}
@@ -37,6 +37,19 @@ public class UserEJB {
 		}
 		return users;
 		
+	}
+	
+	public void update (User user, int uid)
+	{
+		user = em.find(User.class, uid);
+		user.setEmail("email");
+		em.merge(user);
+	}
+	
+	public void delete (User user, int uid)
+	{
+		user = em.find(User.class, uid);
+		em.remove(user);
 	}
 
 	
