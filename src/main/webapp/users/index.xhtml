@@ -60,18 +60,36 @@ body {
 	<div class="container">
 		<h1>#{msg['label.users']}</h1>
 
-		<table>
+		<button type="button"
+			onclick="window.location.href='/sofortzahlen/users/create.xhtml'; return false;"
+			value="" class="btn btn-default">
+			<span class="glyphicon glyphicon-plus"></span> Create User
+		</button>
 
-			<ui:repeat var="u" value="#{user.userList}" varStatus="status">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Firstname</th>
+					<th>Lastname</th>
+					<th>EMail</th>
+					<th>Account Number</th>
+					<th>Account Firstname</th>
+					<th>Account Lastname</th>
+					<th align="right">Balance</th>
+					<th></th>
+				</tr>
+			</thead>
+			<ui:repeat var="u" value="#{userManagedBean.userList}"
+				varStatus="status">
 
 				<tr>
-					<td>#{u.firstName}</td>
-					<td>#{u.lastName}</td>
-					<td>#{u.eMail}</td>
-					<td>#{u.accountNumber}</td>
-					<td>#{u.accountFirstName}</td>
-					<td>#{u.accountLastName}</td>
-					<td>#{u.balance}</td>
+					<td>#{u.firstname}</td>
+					<td>#{u.lastname}</td>
+					<td>#{u.email}</td>
+					<td>#{u.accnumber}</td>
+					<td>#{u.accfirstname}</td>
+					<td>#{u.acclastname}</td>
+					<td align="right">#{u.balance}</td>
 				</tr>
 
 			</ui:repeat>
@@ -90,12 +108,7 @@ body {
 	<h:outputScript name="js/main.js" />
 
 	<script>
-		var _gaq = [ [ '_setAccount', 'UA-XXXXX-X' ], [ '_trackPageview' ] ];
-		(function(d, t) {
-			var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
-			g.src = '//www.google-analytics.com/ga.js';
-			s.parentNode.insertBefore(g, s)
-		}(document, 'script'));
+		
 	</script>
 </h:body>
 </html>

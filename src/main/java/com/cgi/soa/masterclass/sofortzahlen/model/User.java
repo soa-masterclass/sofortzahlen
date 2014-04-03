@@ -23,6 +23,7 @@ public class User implements Serializable {
 	private int id;
 	@Column(unique=true)
 	private String email;
+	private String firstname;
 	private String lastname;
 	private int accnumber;
 	private String accfirstname;
@@ -103,6 +104,14 @@ public class User implements Serializable {
 
 	public void setBalance(Long balance) {
 		this.balance = balance;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 	
 	
