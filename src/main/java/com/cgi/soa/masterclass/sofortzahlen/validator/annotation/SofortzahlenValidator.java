@@ -18,28 +18,23 @@ public class SofortzahlenValidator implements Validator
 	@SuppressWarnings("null")
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value)
-			throws ValidatorException 
-	{
+			throws ValidatorException {
 		// TODO Auto-generated method stub
 		
 		Integer account = null;
 		boolean valid = true;
-		if(value == null)
-		{
+		if(value == null) {
 			valid = false;
 		}
 		else if( !bankWs.getWebServices().isAccountExist((Integer)value))
 		{
 			valid = false;
 		}
-		if(!valid)
-		{
+		if(!valid) {
 			FacesMessage message = new FacesMessage(
 					FacesMessage.SEVERITY_ERROR, "Account is not in",
 					"The account is not valid");
 			throw new ValidatorException(message);
-		}
-		
-	}
-	
+		}	
+	}	
 }

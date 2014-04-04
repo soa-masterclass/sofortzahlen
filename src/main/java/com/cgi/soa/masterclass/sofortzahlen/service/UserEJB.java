@@ -21,18 +21,15 @@ public class UserEJB {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<User> selectAllUser()
-	{
+	public List<User> selectAllUser(){
 		 
 		List<User> users = new LinkedList<User>();
-		try
-		{
+		try	{
 			String query = "select q from "+User.class.getName()+" q";
 			Query q = em.createQuery(query);
 			users = (List<User>) q.getResultList();	
 		}
-		catch(Exception e)
-		{
+		catch(Exception e){
 			e.printStackTrace();
 			System.out.println("Fehler beim Select Alle Users");
 		}
@@ -41,8 +38,7 @@ public class UserEJB {
 	}
 	
 	
-	public User findUserById(Integer userId)
-	{
+	public User findUserById(Integer userId) {
 		String query = "select q from "+ User.class.getName()+" q where  q.id = :id" ; 
 		
 		Query q = em.createQuery(query).setParameter("id", userId);
@@ -54,18 +50,15 @@ public class UserEJB {
 	
 	
 	
-	public void update (User user, int uid)
-	{
+	public void update (User user, int uid)	{
 		user = em.find(User.class, uid);
 		user.setEmail("email");
 		em.merge(user);
 	}
 	
-	public void delete (User user, int uid)
-	{
+	public void delete (User user, int uid)	{
 		user = em.find(User.class, uid);
 		em.remove(user);
 	}
-
 	
 }

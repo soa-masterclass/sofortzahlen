@@ -17,10 +17,8 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "BankWebService", targetNamespace = "http://ws.samplebank.masterclass.soa.cgi.com/", wsdlLocation = "http://54.72.155.92:80/samplebank/BankWebService?wsdl")
-public class BankWebService
-    extends Service
-{
+@WebServiceClient(name = "BankWebService", targetNamespace = "http://ws.samplebank.masterclass.soa.cgi.com/", wsdlLocation = "file:/C:/Java/workspace/sofortzahlen/src/main/resources/META-INF/BankWebService.wsdl")
+public class BankWebService extends Service {
 
     private final static URL BANKWEBSERVICE_WSDL_LOCATION;
     private final static WebServiceException BANKWEBSERVICE_EXCEPTION;
@@ -30,7 +28,7 @@ public class BankWebService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://54.72.155.92:80/samplebank/BankWebService?wsdl");
+            url = new URL("file:/C:/Java/workspace/sofortzahlen/src/main/resources/META-INF/BankWebService.wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }
